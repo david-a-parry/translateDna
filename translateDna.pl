@@ -191,21 +191,28 @@ sub usage{
         Input file of either a single DNA sequence to be translated 
         OR
         several FASTA formatted sequences
+
     -o, --ouptut FILE
         Output file. Optional. Default is STDOUT.
+
     -l, --line_length INT
         Number of letters per line. Default = 60.
+
     -f, --frame INT
         Frame of translation. Valid values are 1 to 3 for translation 
         starting at the first to third letter of the DNA input or -1 to -3 
         for translation of the reverse complement. Default = 1.
+
     -n, --numbers
         Use this flag to number the DNA and peptide output.
+
     -d, --dna
         Output DNA lined up with protein.
+
     -s, --stop
         Stop translation at first termination codon. Default behaviour is 
         to translate all codons in input.
+
     -?, -h, --help
         Show this help message.
 
