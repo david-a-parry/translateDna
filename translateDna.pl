@@ -176,6 +176,8 @@ sub getDnaInFrame{
     my $dna = shift;
     if ($frame < 0){
         $dna = revComp($dna);
+    }else{
+        $dna =~ tr/uU/tT/;
     }
     my $f = abs($frame); 
     return ($dna, substr($dna, $f - 1) );
