@@ -206,27 +206,48 @@ sub usage{
         OR 
         a single DNA sequence (containing only the standard DNA/RNA letters 
         and whitespace) to be translated. 
+
     -o, --ouptut FILE
         Output file. Optional. Default is STDOUT.
+
     -l, --line_length INT
         Number of letters per line. Default = 60.
+
     -f, --frame INT
         Frame of translation. Valid values are 1 to 3 for translation 
         starting at the first to third letter of the DNA input or -1 to -3 
         for translation of the reverse complement. Default = 1.
+
     -n, --numbers
         Use this flag to number the DNA and peptide output.
+
     -d, --dna
         Output DNA lined up with protein.
+
     -s, --stop
         Stop translation at first termination codon. Default behaviour is 
         to translate all codons in input.
+
     -?, -h, --help
         Show this help message.
 
-Copyright © 2015  David A. Parry
 
-This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program. If not, see <http://www.gnu.org/licenses/>.
+    Copyright (C) 2015  David A. Parry
+
+    This program is free software; you can redistribute it and/or
+    modify it under the terms of the GNU General Public License
+    as published by the Free Software Foundation; either version 2
+    of the License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, 
+    MA  02110-1301, USA.
 
 EOT
 ;
