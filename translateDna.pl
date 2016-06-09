@@ -49,7 +49,19 @@ if (abs($frame) > 3 or not $frame){
     usage("-f/--frame must be between 1 and 3 or between -1 and -3\n");
 }
 
-open (my $IN, $opts{i}) or die "Could not open $opts{i} for writing: $!\n";
+my $IN;
+if (-f $opts{i}){
+    open ($IN, "<", $opts{i}) or die "Could not open $opts{i} for reading: $!\n";
+}else{
+    if ($opts{i} =~ /^[\sacgtuACGTU]+$/){
+        $opts{i} =~ s/\s+/\n/g;
+        open ($IN, "<", \$opts{i}) 
+            or die "Error getting filehandle from input string: $!\n";
+    }else{
+        die "ERROR: '$opts{i}' does not exist as a file and does not look ".
+            "like a DNA sequence.\n";
+    }
+}
 
 my $OUT = \*STDOUT;#main output defaults to STDOUT
 if ($opts{o}){
@@ -183,14 +195,17 @@ sub usage{
     print STDERR "ERROR: $msg\n" if $msg;
     print <<EOT
     
-    usage: $0 -i <dna_input.fa> [options]
+    usage: $0 -i <dna_input.fa>  [options]
+    usage: $0 -i ATGCCGCTACGC... [options]
 
     Options:
 
-    -i, --input FILE
-        Input file of either a single DNA sequence to be translated 
-        OR
-        several FASTA formatted sequences
+    -i, --input FILE/STRING
+        Either an input file containing a single DNA sequence to be 
+        translated (FASTA header optional) or several FASTA formatted sequences
+        OR 
+        a single DNA sequence (containing only the standard DNA/RNA letters 
+        and whitespace) to be translated. 
     -o, --ouptut FILE
         Output file. Optional. Default is STDOUT.
     -l, --line_length INT
