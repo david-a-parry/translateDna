@@ -17,7 +17,9 @@ Or alternatively:
 
 ##Examples
 
-Input files may be plain text or FASTA format. The following will translate all sequences in the FASTA formatted file 'dna_input.fa'. 
+Input files may be plain text or FASTA format. Alternatively a single DNA sequence can be provided.
+
+The following will translate all sequences in the FASTA formatted file 'dna_input.fa'. 
 
     ./translateDna.pl -i dna_input.fa
 
@@ -40,23 +42,32 @@ You may want to stop at the first termination codon encountered:
 You can also supply input from STDIN by specifying '-' as your input file, like so: 
 
     ./translateDna.pl -i - 
+
+In the above command you can type or paste your sequence of interest on the commandline and press 'ctrl-D' to signal the end of your input.
     
-In this way you may pipe output from other programs, for example: 
+Alternatively, you may take input from STDIN by piping output from other programs, for example: 
 
     curl http://genome.ucsc.edu/cgi-bin/das/hg19/dna?segment=chr11:45827392,45827904  | grep -v '<' | ./translateDna.pl -i - 
+
+To translate a sequence provided directly on the command line do the following: 
+
+    ./translateDna.pl -i ATGCCCAAAGGG
+
+If translating a sequence rather than a file, make sure you use quotes if there is any whitespace in your input
+
+    ./translateDna.pl -i "ATG CCC AAA GGG"
 
 For an explanation of all options use the -h option:
 
     ./translateDna.pl -h 
 
 
-<<<<<<< HEAD
 ##Credit
 
 Copyright © 2015  David A. Parry
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program. If not, see <http://www.gnu.org/licenses/>.
-=======
+
 ##License
 
 Copyright (C) 2015  David A. Parry
@@ -74,5 +85,4 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
->>>>>>> 1174704f0631e22e711ca23535719d2b692ddead
 
