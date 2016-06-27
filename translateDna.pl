@@ -50,9 +50,10 @@ if (abs($frame) > 3 or not $frame){
 }
 
 my $IN;
-if (-f $opts{i} or $opts{i} eq '-'){
+if (-f $opts{i} or -p $opts{i} or $opts{i} eq '-'){
     open ($IN, $opts{i}) or die "Could not open $opts{i} for reading: $!\n";
 }else{
+    $opts{i} =~ s/['"]//g;
     if ($opts{i} =~ /^[\sacgtuACGTU]+$/){
         $opts{i} =~ s/\s+/\n/g;
         open ($IN, "<", \$opts{i}) 
