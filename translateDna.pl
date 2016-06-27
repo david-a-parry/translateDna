@@ -133,12 +133,11 @@ sub outputTranslationOnly{
 #########################################################
 sub outputDnaAndProtein{
     my ($dna, $protein, $name) = @_;
+    my $max_protein = length($protein); 
+    my $num_length = length(length($dna)); 
     $protein = join('', map { "-$_-" } split('', $protein) );
     $protein = '-' x (abs($frame) -1)  . $protein;
     print $OUT ">$name\n\n" if ($name);
-    my $num_length = length(length($dna)); 
-    (my $raw_protein = $protein) =~ s/\-//g;
-    my $max_protein = length($raw_protein); 
     for (my $i = 0; $i < length($dna); $i += $line_length){
         my $l = $line_length;
         if ($i + $line_length > length($dna)){
