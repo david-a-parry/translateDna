@@ -206,7 +206,8 @@ sub usage{
         translated (FASTA header optional) or several FASTA formatted sequences
         OR 
         a single DNA sequence (containing only the standard DNA/RNA letters 
-        and whitespace) to be translated. 
+        and whitespace) to be translated. If your sequence contains any spaces
+        you must enclose it with quotes (e.g. "ATG CCC GGG"). 
 
     -o, --ouptut FILE
         Output file. Optional. Default is STDOUT.
