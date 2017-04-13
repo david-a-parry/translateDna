@@ -90,7 +90,7 @@ sub translateDna{
     my $cdna = '';
     my $protein = '';
     ($dna, $cdna) = getDnaInFrame($dna);
-	while ($cdna =~ /(...)/g){
+    while ($cdna =~ /(...)/g){
         my $codon = uc($1);
         my $aa = '?';
         if (exists $codons{$codon}){
@@ -186,7 +186,7 @@ sub getDnaInFrame{
 #########################################################
 sub revComp{
     my $dna = shift;
-	$dna =~ tr/uU/tT/;
+    $dna =~ tr/uU/tT/;
     $dna =~ tr/acgtACGT/tgcaTGCA/; 
     return reverse($dna);
 }
